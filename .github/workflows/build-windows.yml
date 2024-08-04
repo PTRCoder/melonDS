@@ -24,6 +24,8 @@ jobs:
         vcpkgGitCommitId: 1de2026f28ead93ff1773e6e680387643e914ea1
     - name: Configure
       run: cmake --preset=release-mingw-x86_64
+    - name: Test GCC version
+      run: g++ --version
     - name: Build
       run: cmake --build --preset=release-mingw-x86_64
     - uses: actions/upload-artifact@v4
