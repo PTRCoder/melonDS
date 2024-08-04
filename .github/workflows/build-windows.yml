@@ -1,7 +1,13 @@
 name: CMake Build (Windows x86-64)
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+        myCommit:
+          description: 'Commit SHA1'
+          required: true
+          default: 'undefined'
+          type: string
 
 env:
   BUILD_TYPE: Release
@@ -16,6 +22,8 @@ jobs:
         shell: msys2 {0}
     steps:
     - uses: actions/checkout@v1
+      with:
+        ref: ${{ inputs.myCommit }}
     - uses: msys2/setup-msys2@v2
       with:
           msystem: MINGW64
