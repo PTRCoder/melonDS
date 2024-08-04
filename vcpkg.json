@@ -5,8 +5,7 @@
 		"libarchive",
 		"zstd",
 		"libslirp",
-		"enet",
-		"toolchain"
+		"enet"
 	],
 	"features": {
 		"qt6": {
