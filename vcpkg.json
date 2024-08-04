@@ -4,7 +4,8 @@
 		"sdl2",
 		"libarchive",
 		"zstd",
-		"libslirp"
+		"libslirp",
+		"enet"
 	],
 	"features": {
 		"qt6": {
