@@ -19,10 +19,16 @@ function(fix_interface_includes)
             if (PARENT_DIR MATCHES "include$")
                 list(APPEND NEW_DIRS "${PARENT_DIR}")
             endif()
+
+            # HACK
+            # The libarchive pkg-config file in MSYS2 seems to include a UNIX-style path for its
+            # include directory and CMake doesn't like that.
+            if (WIN32 AND MINGW AND target STREQUAL PkgConfig::LibArchive)
+                list(FILTER DIRS EXCLUDE REGEX "^/[^.]+64/.*")
+            endif()
         endforeach()
 
         list(APPEND DIRS ${NEW_DIRS})
         set_target_properties("${target}" PROPERTIES INTERFACE_INCLUDE_DIRECTORIES "${DIRS}")
     endforeach()
 endfunction()
-
