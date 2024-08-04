@@ -21,5 +21,9 @@
 
 #define MELONDS_URL        "https://melonds.kuribo64.net/"
 
+#define MELONDS_VERSION_BASE   "${melonDS_VERSION}"
+#define MELONDS_VERSION_SUFFIX "${MELONDS_VERSION_SUFFIX}"
+#define MELONDS_VERSION        MELONDS_VERSION_BASE MELONDS_VERSION_SUFFIX
+
 #endif // VERSION_H
 
